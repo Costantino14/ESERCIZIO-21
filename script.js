@@ -1,5 +1,5 @@
 
-//estraggo i dati dall'api e li posiziono nella sezione 
+//estraggo i dati dall'api e li posiziono nella sezione dedicata nella pagina
 
 fetch ("https://striveschool-api.herokuapp.com/books")
     //trasformo i dati in json
@@ -9,27 +9,24 @@ fetch ("https://striveschool-api.herokuapp.com/books")
         console.log(libri)
         const sezione = document.getElementById("sezione");
         libri.forEach(libro => {
-            const card = document.createElement("div");
-            card.classList.add("card","book")
-            card.innerHTML= `
+            const card = document.createElement("div"); //creo un div per ogni libro
+            card.classList.add("card","book") //aggiungo una classa bootstrap e una personale
+            card.innerHTML= ` 
             <img src="${libro.img}" class="img-fluid" alt="cover ${libro.title}">
             <span class="badge">Added</span>
-            <h5 class="card-title">${libro.title}</h5>
+            <h5 class="card-title titolo">${libro.title}</h5>
             <p class="card-text">Category: ${libro.category}</p>
             <b>Price: ${libro.price}€</b>
             <button class="btn btn-primary bottone" onclick = "addBook('${libro.asin}')">Add to Basket</button>
             `;
-            sezione.appendChild(card);
+            //qui sopra inserisco il codice nel div che ho creato e aggiungo i dati dei singoli libri
+
+            sezione.appendChild(card); //aggiungo le card che ho creato
             
         });
     })
 
 function addBook(parametro) { 
-  let buttons = document.querySelectorAll('.bottone');
-  buttons.forEach(button =>  {
-      const badge= button.closest('.badge');
-      console.log(badge)
-    })
 
     fetch ("https://striveschool-api.herokuapp.com/books")
     //trasformo i dati in json
@@ -59,9 +56,28 @@ function addBook(parametro) {
                 </div>
             `;
             carrello.appendChild(card);
-            remove();
+            remove(); //solo in questo momento richiamo la funzione remove
         });
     });
+}
+
+
+//funzione per la ricerca da completare
+const search = (evento) => {
+  let input = evento.target.value
+  console.log(input)
+  let titoli = document.querySelectorAll('.titolo')
+  console.log(titoli)
+ titoli.forEach(titolo => {
+    const card = titolo.parentElement
+    console.log(card)
+    console.log(titolo)
+    if (titolo.includes(input.toLowerCase())) {
+      card.style.display = "none"
+    } else {
+      card.style.display = "block"
+    }
+  })
 }
 
 
@@ -81,7 +97,7 @@ function remove() {
 function removeAll() {
     let list = document.getElementById("carrello") 
   
-    //Uso il While per la prima riga.
+    //Uso il While per cancellare tutti gli elementi che sono dentro il carrello.
     while (list.firstChild){
       list.removeChild(list.firstChild);
     }
