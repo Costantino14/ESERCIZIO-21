@@ -1,0 +1,48 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+#sezione {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.book {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 10px;
+}
+
+.book img {
+    position: relative;
+}
+
+.book span {
+    border: 1px solid green;
+    padding: 2px 5px;
+    color: red;
+    font-weight: 600;
+    background-color: bisque;
+    position: absolute;
+    top:1%;
+    left: 5px;
+    opacity: 0;
+
+}
+
+.card img {
+    width: 250px;
+    height: 300px;
+}
