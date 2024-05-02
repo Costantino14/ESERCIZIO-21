@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: black;
+    background-image: url(https://img.freepik.com/free-vector/beautiful-book-club-pattern-illustration_23-2149330102.jpg?size=338&ext=jpg&ga=GA1.1.1413502914.1714348800&semt=ais);
 }
 
 #sezione {
@@ -18,31 +18,20 @@ body {
 
 .book {
     width: 250px;
+    display: block;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
     margin: 10px;
-}
-
-.book img {
-    position: relative;
-}
-
-.book span {
-    border: 1px solid green;
-    padding: 2px 5px;
-    color: red;
-    font-weight: 600;
-    background-color: bisque;
-    position: absolute;
-    top:1%;
-    left: 5px;
-    opacity: 0;
 
 }
 
 .card img {
     width: 250px;
     height: 300px;
+}
+
+.book button, .book a{
+    font-size: small;
 }
